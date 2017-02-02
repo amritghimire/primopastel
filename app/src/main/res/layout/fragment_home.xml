@@ -46,7 +46,7 @@
                 android:layout_weight="0.5">
 
                 <ImageButton
-                    android:id="@+id/activity_main_special"
+                    android:id="@+id/special_cake"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_alignParentTop="true"
@@ -75,7 +75,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.5">
             <ImageButton
-                android:id="@+id/acitivity_main_surprise"
+                android:id="@+id/surprise_button"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@null"

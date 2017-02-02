@@ -42,6 +42,8 @@ public class MainActivity extends AppCompatActivity
             ft.replace(R.id.content_framework, fragment);
             ft.commit();
 
+
+
     }
 
     @Override

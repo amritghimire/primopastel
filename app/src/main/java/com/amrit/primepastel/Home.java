@@ -2,16 +2,19 @@ package com.amrit.primepastel;
 
 import android.app.Activity;
 import android.content.Context;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -51,7 +54,7 @@ public class Home extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         Activity context = getActivity();
         View view=inflater.inflate(R.layout.fragment_home,container,false);
@@ -60,6 +63,16 @@ public class Home extends Fragment {
         viewPager.setAdapter(androidImageAdapter);
         TabLayout tabLayout = (TabLayout) view.findViewById(R.id.tabDots);
         tabLayout.setupWithViewPager(viewPager, true);
+
+        ((ImageButton) view.findViewById(R.id.surprise_button)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment fragment=new Surprises();
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(R.id.content_framework, fragment);
+                ft.commit();
+            }
+        });
 
         final Handler handler = new Handler();
 

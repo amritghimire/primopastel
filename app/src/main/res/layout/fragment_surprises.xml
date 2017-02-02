@@ -4,10 +4,24 @@
     android:layout_height="match_parent"
     tools:context="com.amrit.primepastel.Surprises">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <LinearLayout
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/cake_logof"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="If you make 10 orders a year you will be rewarderd with recharge card with Rs 100"
+            />
+        <Button
+            android:id="@+id/activity_surprise_order"
+            android:background="@drawable/shapeoval"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Order"/>
 
+    </LinearLayout>
 </FrameLayout>
