@@ -9,19 +9,34 @@
         android:layout_height="match_parent">
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp" android:layout_weight="2"
             android:src="@drawable/cake_logof"/>
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp" android:layout_weight="1"
             android:text="If you make 10 orders a year you will be rewarderd with recharge card with Rs 100"
             />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp" android:layout_weight="6">
+
+            <TextView
+                android:text="You have ordered \n\n\n\n5 cakes."
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textAlignment="center"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:id="@+id/ordered_numbber"
+            />
+        </LinearLayout>
+
         <Button
             android:id="@+id/activity_surprise_order"
             android:background="@drawable/shapeoval"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Order"/>
+            android:layout_height="0dp"
+            android:text="Order More" android:layout_weight="1"/>
 
     </LinearLayout>
 </FrameLayout>
