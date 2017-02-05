@@ -3,11 +3,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.amrit.primepastel.Order">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" android:orientation="vertical">
+    <ListView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="0dp" android:layout_weight="9" android:id="@+id/listofcakes">
+
+    </ListView>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="0dp" android:layout_weight="1"
+        android:text="Order" android:layout_gravity="center"
+        />
+</LinearLayout>
 
 </FrameLayout>

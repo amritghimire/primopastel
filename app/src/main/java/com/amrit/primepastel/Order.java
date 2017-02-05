@@ -7,6 +7,13 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -20,21 +27,15 @@ import android.view.ViewGroup;
 public class Order extends Fragment {
 
     private OnFragmentInteractionListener mListener;
+    List<Product> l = new ArrayList<Product>();
 
     public Order() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Order.
-     */
+
     // TODO: Rename and change types and number of parameters
-    public static Order newInstance(String param1, String param2) {
+    public static Order newInstance() {
         Order fragment = new Order();
         Bundle args = new Bundle();
 
@@ -48,13 +49,27 @@ public class Order extends Fragment {
         if (getArguments() != null) {
 
         }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_order, container, false);
+        View inflate = inflater.inflate(R.layout.fragment_order, container, false);
+        ListView lv = (ListView) inflate.findViewById(R.id.listofcakes);
+
+        l.add(new Product("Angel cake","This is very sweet","$24",R.drawable.images));
+        l.add(new Product("Angel cake","This is very sweet","$24",R.drawable.images));
+        l.add(new Product("Angel cake","This is very sweet","$24",R.drawable.images));
+        l.add(new Product("Angel cake","This is very sweet","$24",R.drawable.images));
+        l.add(new Product("Angel cake","This is very sweet","$24",R.drawable.images));
+
+        lv.setAdapter(new CustomAdapter(getContext(),l));
+
+
+
+        return inflate;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -69,9 +84,6 @@ public class Order extends Fragment {
         super.onAttach(context);
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
         }
     }
 
@@ -95,4 +107,6 @@ public class Order extends Fragment {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
+
 }
