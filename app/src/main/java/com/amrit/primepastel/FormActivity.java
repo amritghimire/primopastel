@@ -11,18 +11,26 @@ import android.widget.TextView;
 public class FormActivity extends AppCompatActivity {
 
     PrefManager prefManager;
+    String data;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         prefManager = new PrefManager(this);
-        if (!prefManager.isFirstTimeLaunch()) {
-                startActivity(new Intent(this,MainActivity.class));
+        data = getIntent().getStringExtra("from");
+        if(data==null) {
+            if (!prefManager.isFirstTimeLaunch()) {
+                startActivity(new Intent(this, MainActivity.class));
                 finish();
             }
-
+        }
         setContentView(R.layout.activity_form);
+        if(data!=null){
+            ((EditText) findViewById(R.id.your_full_name)).setText(prefManager.getNAME());
+            ((EditText) findViewById(R.id.your_email_address)).setText(prefManager.getEMAIL());
+        }
 
     }
 
@@ -42,4 +50,14 @@ public class FormActivity extends AppCompatActivity {
         }
 
     }
+
+    @Override
+    public void onBackPressed() {
+       if(data!=null){
+           startActivity(new Intent(this,MainActivity.class));
+        } else {
+            super.onBackPressed();
+        }
+    }
+
 }
